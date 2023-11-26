@@ -1,7 +1,7 @@
 # Supply chain Dapp on Ethereum
 
 ## Introduction
-This repository contains a Dapp as a demo concept on how you can automate and manage payments and the full life cycle of products, in a transparent way, on a Ehtereum blockchain, using smart contracts.
+This repository contains a Dapp as a demo concept on how you can automate and manage payments and the full life cycle of products, in a transparent way, on a Ethereum blockchain, using smart contracts.
 
 Using such system would give users `visibility`, `transparency` and `confidence` at every step.
 
