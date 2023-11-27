@@ -9,7 +9,8 @@ import "./ProductManager.sol";
  * By handling payments this way, we can use simple receive function and keep the information of which product is being purchased.
  * 
  */
-contract ProductPaymentHanler{
+contract ProductPaymentHanler
+{
     
     uint public price;
     uint public index;
@@ -20,7 +21,7 @@ contract ProductPaymentHanler{
     constructor(ProductManager _parentContract, uint _idex, uint _price,uint _Quantity) public {
         parentContract = _parentContract;
         index = _idex;
-        price = _price;
+        price = _price*_Quantity;
         Quantity = _Quantity;
     }
     

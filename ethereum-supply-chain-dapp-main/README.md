@@ -37,8 +37,8 @@ Truffle: `v5.1.40`.
 
 Setting up and running the application :
 - Install truffle:  `npm install truffle -g`
-- Install npd moduls: `cd client` & `npm install`
-- Start truffle developmnet blockchain: `truffle development`
+- Install npd modules: `cd client` & `npm install`
+- Start truffle development blockchain: `truffle development`
 - Compile and migrate smart contracts to the local blockchain (from truffle console): `migrate`
 - Start react app: `cd client` & `npm start`
 
