@@ -36,7 +36,7 @@ contract ProductManager is Ownable{
         ProductPaymentHanler paymentHandler = new ProductPaymentHanler(this, index, _price*1000000000,_Quantity);
         products[index].paymentHandler = paymentHandler;
         products[index].productUid = _id;
-        products[index].price = _price*1000000000;
+        products[index].price = _price*1000000000*_Quantity;
         products[index].Quantity = _Quantity;
         products[index].state = ProductState.Created;
         
