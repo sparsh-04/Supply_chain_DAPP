@@ -33,10 +33,10 @@ contract ProductManager is Ownable{
      * @dev Creating new product and saving it in storage.
      */
     function createProduct(string memory _id, uint _price,uint _Quantity) public onlyOwner {
-        ProductPaymentHanler paymentHandler = new ProductPaymentHanler(this, index, _price,_Quantity);
+        ProductPaymentHanler paymentHandler = new ProductPaymentHanler(this, index, _price*1000000000,_Quantity);
         products[index].paymentHandler = paymentHandler;
         products[index].productUid = _id;
-        products[index].price = _price;
+        products[index].price = _price*1000000000;
         products[index].Quantity = _Quantity;
         products[index].state = ProductState.Created;
         
