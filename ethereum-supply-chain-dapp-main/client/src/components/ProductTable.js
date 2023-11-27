@@ -214,6 +214,7 @@ export default function ProductTable(props) {
                         {row.name}
                       </TableCell>
                       <TableCell align="right">{row.price}</TableCell>
+                      <TableCell align="right">{row.quantity}</TableCell>
                       <TableCell align="right">{row.state}</TableCell>
                       <TableCell align="right">{row.paymentAddress}</TableCell>
                     </TableRow>

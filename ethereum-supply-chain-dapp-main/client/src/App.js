@@ -134,7 +134,7 @@ class App extends Component {
         id: index,
         name: product.productUid,
         price: product.price,
-        Quantity:product.Quantity,
+        quantity:product.Quantity,
         state: productStatuses[product.state],
         paymentAddress: product.paymentHandler
       }
