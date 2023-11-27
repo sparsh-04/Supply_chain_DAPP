@@ -15,12 +15,10 @@ import TableSortLabel from '@material-ui/core/TableSortLabel';
 import Paper from '@material-ui/core/Paper';
 
 function descendingComparator(a, b, orderBy) {
-  if (b[orderBy] < a[orderBy]) {
+  if (b[orderBy] < a[orderBy]) 
     return -1;
-  }
-  if (b[orderBy] > a[orderBy]) {
+  if (b[orderBy] > a[orderBy]) 
     return 1;
-  }
   return 0;
 }
 
