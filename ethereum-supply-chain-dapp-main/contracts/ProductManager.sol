@@ -15,9 +15,11 @@ contract ProductManager is Ownable{
     /// @dev Info we store for every product
     struct Product{
         string productUid;
+        uint Quantity;
         uint price;
         ProductState state;
         ProductPaymentHanler paymentHandler;
+
     }
     
     /// @dev Keeping track of products and their states.
@@ -30,11 +32,12 @@ contract ProductManager is Ownable{
     /**
      * @dev Creating new product and saving it in storage.
      */
-    function createProduct(string memory _id, uint _price) public onlyOwner {
-        ProductPaymentHanler paymentHandler = new ProductPaymentHanler(this, index, _price);
+    function createProduct(string memory _id, uint _price,uint _Quantity) public onlyOwner {
+        ProductPaymentHanler paymentHandler = new ProductPaymentHanler(this, index, _price,_Quantity);
         products[index].paymentHandler = paymentHandler;
         products[index].productUid = _id;
         products[index].price = _price;
+        products[index].Quantity = _Quantity;
         products[index].state = ProductState.Created;
         
         emit ProductStateChanged(index, uint(products[index].state), address(products[index].paymentHandler));

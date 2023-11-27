@@ -13,13 +13,15 @@ contract ProductPaymentHanler{
     
     uint public price;
     uint public index;
+    uint public Quantity;
     bool public isProductPurchased;
     ProductManager public parentContract;
     
-    constructor(ProductManager _parentContract, uint _idex, uint _price) public {
+    constructor(ProductManager _parentContract, uint _idex, uint _price,uint _Quantity) public {
         parentContract = _parentContract;
         index = _idex;
         price = _price;
+        Quantity = _Quantity;
     }
     
     /**

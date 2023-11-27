@@ -16,6 +16,7 @@ class NewItem extends Component {
         this.state = {
             itemName: "",
             itemPrice: "",
+            itemQuantity:"",
             paymentAddress: "",
             showAlert: false
         };
@@ -39,7 +40,7 @@ class NewItem extends Component {
         /**
          * Creating new pruduct based on user inputs and storing it on smart contract 
          */
-        let result = await this.props.productManager.methods.createProduct(this.state.itemName, this.state.itemPrice).send({ from: this.props.account});
+        let result = await this.props.productManager.methods.createProduct(this.state.itemName, this.state.itemPrice,this.state.itemQuantity).send({ from: this.props.account});
         this.setState({
             showAlert: true,
             paymentAddress: result.events.ProductStateChanged.returnValues.productPaymentAddress
@@ -67,8 +68,11 @@ class NewItem extends Component {
                         <Grid item xs={3} style={{ 'textAlign': 'right' }}>
                             <TextField required label='Price in Wei' variant='outlined' name="itemPrice" value={this.state.itemPrice} onChange={this.handleInputChange} />
                         </Grid>
-                        <Grid item xs={3} style={{ 'textAlign': 'left' }}>
+                        <Grid item xs={3} style={{ 'textAlign': 'center' }}>
                             <TextField required label='Product name' variant='outlined' name="itemName" value={this.state.itemName} onChange={this.handleInputChange} />
+                        </Grid>
+                        <Grid item xs={3} style={{ 'textAlign': 'left' }}>
+                            <TextField required label='Quantity' variant='outlined' name="itemQuantity" value={this.state.itemQuantity} onChange={this.handleInputChange} />
                         </Grid>
                         <Grid item xs={3}></Grid>
                         <Grid item xs={12}>

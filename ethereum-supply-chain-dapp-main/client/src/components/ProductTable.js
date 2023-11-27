@@ -43,6 +43,7 @@ function stableSort(array, comparator) {
 const headCells = [
   { id: 'name', numeric: false, disablePadding: false, label: 'Name' },
   { id: 'price', numeric: true, disablePadding: false, label: 'Price' },
+  { id: 'quantity', numeric: true, disablePadding: false, label: 'Quantity' },  
   { id: 'state', numeric: true, disablePadding: false, label: 'State' },
   { id: 'paymentAddress', numeric: true, disablePadding: false, label: 'Payment address' },
 ];
