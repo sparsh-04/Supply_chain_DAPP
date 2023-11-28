@@ -1,4 +1,3 @@
-
 import React, { Component } from "react";
 
 import ProductManagerContract from "./contracts/ProductManager.json";
@@ -177,13 +176,13 @@ let self = this;
 
     const addItem = {
       height : '50vh',
-      backgroundColor:'#EEE2DE'
+      backgroundColor:'#EEE2DE',
+      marginBottom: "10vh"
     }
 
     const mainContent = {
-      marginTop: "2%",
+      marginTop: "5%",
       width: "100%",
-      // display: 'flex'
     }
     return (
       <div style={wholePage}>

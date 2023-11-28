@@ -8,7 +8,7 @@
   "sourceMap": "",
   "deployedSourceMap": "",
   "source": "// SPDX-License-Identifier: MIT\n\npragma solidity ^0.6.0;\n\n/*\n * @dev Provides information about the current execution context, including the\n * sender of the transaction and its data. While these are generally available\n * via msg.sender and msg.data, they should not be accessed in such a direct\n * manner, since when dealing with GSN meta-transactions the account sending and\n * paying for execution may not be the actual sender (as far as an application\n * is concerned).\n *\n * This contract is only required for intermediate, library-like contracts.\n */\nabstract contract Context {\n    function _msgSender() internal view virtual returns (address payable) {\n        return msg.sender;\n    }\n\n    function _msgData() internal view virtual returns (bytes memory) {\n        this; // silence state mutability warning without generating bytecode - see https://github.com/ethereum/solidity/issues/2691\n        return msg.data;\n    }\n}\n",
-  "sourcePath": "C:\\Users\\ROHAN\\Desktop\\Study material\\5th sem\\Blockchain\\BC\\Supply_chain_DAPP\\ethereum-supply-chain-dapp-main\\client\\node_modules\\@openzeppelin\\contracts\\GSN\\Context.sol",
+  "sourcePath": "C:\\Users\\kshit\\Desktop\\bc4\\Supply_chain_DAPP\\ethereum-supply-chain-dapp-main\\client\\node_modules\\@openzeppelin\\contracts\\GSN\\Context.sol",
   "ast": {
     "absolutePath": "project:/client/node_modules/@openzeppelin/contracts/GSN/Context.sol",
     "exportedSymbols": {
@@ -578,7 +578,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.16",
-  "updatedAt": "2023-11-27T13:57:56.204Z",
+  "updatedAt": "2023-11-28T16:27:52.065Z",
   "devdoc": {
     "methods": {}
   },

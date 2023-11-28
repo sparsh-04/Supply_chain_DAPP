@@ -6,12 +6,15 @@ import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Container from '@material-ui/core/Container';
 import TextField from '@material-ui/core/TextField';
-
-import AlertDialog from './AlertDialog'
-import { InputAdornment } from '@material-ui/core';
+import FilledInput from '@material-ui/core/FilledInput';
+import FormHelperText from '@material-ui/core/FormHelperText';
+import FormControl from '@material-ui/core/FormControl';
+import AlertDialog from './AlertDialog';
+// import OutlinedInput from '@material-ui/core/OutlinedInput';
+import { InputAdornment, OutlinedInput } from '@material-ui/core';
 
 const paperStyle = {
-    color: "#2B2A4C",
+    color: "black",
 };
 class NewItem extends Component {
 
@@ -42,7 +45,7 @@ class NewItem extends Component {
     }
 
     createNewItem = async (event) => {
-        /**
+       /**
          * Creating new product based on user inputs and storing it on smart contract 
          */
         let result = await this.props.productManager.methods.createProduct(this.state.itemName, this.state.itemPrice,this.state.itemQuantity).send({ from: this.props.account});
@@ -50,9 +53,13 @@ class NewItem extends Component {
             showAlert: true,
             paymentAddress: result.events.ProductStateChanged.returnValues.productPaymentAddress
         });
-        
-        // Updating list of products from parent component (so that table is automatically updated)
+        this.state.itemName = ""
+    this.state.itemPrice = ""
+     this.state.itemQuantity = ""
+       
+// Updating list of products from parent component (so that table is automatically updated)
         this.props.updateProducts()
+        
     }
 
     toggleAlert() {
@@ -65,31 +72,32 @@ class NewItem extends Component {
 
     render() {
         return (
-            <Container style={{marginTop:'20vh', marginBottom:'20vh','width': '50vw' ,height:"40vh"}}>
+            <Container style={{marginTop:'15vh', marginBottom:'40vh','width': '50vw' ,height:"40vh", color: 'blue'}}>
                 <Paper elevation={3} style={paperStyle} >
                     <Grid container direction="column" justifyContent="space-evenly" alignItems="center" spacing={3}>
-                        <Grid item xs={12}>
-                            <h2>Add items to the inventory:</h2>
+                        <Grid item xs={12} color="blue">
+                            <h1>Add new drugs to the inventory:</h1>
                         </Grid>
                         <Grid item xs={10}></Grid>
                         <Grid item xs={10} style={{ 'textAlign': 'center' }}>
-                        <TextField placeholder='Product name' variant='outlined' name="itemName" value={this.state.itemName} onChange={this.handleInputChange} />
+                        <TextField required label='Drug name' variant='outlined' name="itemName" value={this.state.itemName} onChange={this.handleInputChange} />
                         </Grid>
                         <Grid item xs={10} style={{ 'textAlign': 'center' }}>
-                        <TextField placeholder='Product Price' variant='outlined' name="itemPrice" value={this.state.itemPrice} onChange={this.handleInputChange} />   
+                        <TextField InputProps={{startAdornment: <InputAdornment position="start">Gwei</InputAdornment>,}} required label='Product Price' variant='outlined' name="itemPrice" value={this.state.itemPrice} onChange={this.handleInputChange} />  
+                        
                         </Grid>
-                        <Grid item xs={3} style={{ 'textAlign': 'left' }}>
+                        <Grid item xs={10} style={{ 'textAlign': 'left' }}>
                             <TextField required label='Quantity' variant='outlined' name="itemQuantity" value={this.state.itemQuantity} onChange={this.handleInputChange} />
                         </Grid>
                         <Grid item xs={3}></Grid>
                         <Grid item xs={10}>
-                            <Button variant="outlined" color="primary" onClick={this.createNewItem}>
+                            <Button variant="contained" color="primary" onClick={this.createNewItem}>
                                 Create new product
                             </Button>
-                        </Grid>
-                    </Grid>
-                </Paper>
-                <AlertDialog show={this.state.showAlert} price={this.state.itemPrice} paymentAddress={this.state.paymentAddress} closeAlertDialog={this.toggleAlert}/>
+                </Grid>
+             </Grid>
+            </Paper>
+            <AlertDialog show={this.state.showAlert} price={this.state.itemPrice} paymentAddress={this.state.paymentAddress} closeAlertDialog={this.toggleAlert}/>
             </Container>
         );
     }
