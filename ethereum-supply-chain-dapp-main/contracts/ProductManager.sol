@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.6.0.;
-import "./ProductPaymentHanler.sol";
+import "./ProductPaymentHandler.sol";
 import "../client/node_modules/@openzeppelin/contracts/access/Ownable.sol";
 
 contract ProductManager is Ownable{
@@ -11,14 +11,14 @@ contract ProductManager is Ownable{
         uint Quantity;
         uint price;
         ProductState state;
-        ProductPaymentHanler paymentHandler;
+        ProductPaymentHandler paymentHandler;
 
     }
     mapping(uint => Product) public products;
     uint public index;
     event ProductStateChanged(uint _productIndex, uint _step, address productPaymentAddress);
     function createProduct(string memory _id, uint _price,uint _Quantity) public onlyOwner {
-        ProductPaymentHanler paymentHandler = new ProductPaymentHanler(this, index, _price*1000000000,_Quantity);
+        ProductPaymentHandler paymentHandler = new ProductPaymentHandler(this, index, _price*1000000000,_Quantity);
         products[index].paymentHandler = paymentHandler;
         products[index].uid = _id;
         products[index].price = _price*1000000000*_Quantity;

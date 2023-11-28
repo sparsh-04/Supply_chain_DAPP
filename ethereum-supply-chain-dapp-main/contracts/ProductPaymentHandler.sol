@@ -2,7 +2,7 @@
 pragma solidity ^0.6.0.;
 
 import "./ProductManager.sol";
-contract ProductPaymentHanler
+contract ProductPaymentHandler
 {
  uint public price;
     uint public index;
@@ -22,6 +22,7 @@ contract ProductPaymentHanler
 
      (bool success, ) = address(parentContract).call{value: msg.value}(abi.encodeWithSignature("triggerPayment(uint256)", index));
    require(success, "Transaction wan't successful.");
-        purchased = true;
+        purchased =
+         true;
     }
 }

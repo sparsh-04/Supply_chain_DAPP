@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 import ProductManagerContract from "./contracts/ProductManager.json";
-import ProductPaymentHanlerContract from "./contracts/ProductPaymentHanler.json"
+import ProductPaymentHandlerContract from "./contracts/ProductPaymentHandler.json"
 import getWeb3 from "./getWeb3";
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
@@ -51,8 +51,8 @@ class App extends Component {
 
      
     this.productPaymentHandler = new this.web3.eth.Contract(
-     ProductPaymentHanlerContract.abi,
-    ProductPaymentHanlerContract.networks[this.networkId] && ProductPaymentHanlerContract.networks[this.networkId].address,
+     ProductPaymentHandlerContract.abi,
+    ProductPaymentHandlerContract.networks[this.networkId] && ProductPaymentHandlerContract.networks[this.networkId].address,
       );
     this.smartContractEventListener();
       await this.getAllProductsFromContract();
