@@ -9,6 +9,7 @@
     "react": "16.11.0",
     "react-dom": "16.11.0",
     "react-scripts": "5.0.0",
+    "solc": "^0.8.23-fixed",
     "web3": "1.2.2"
   },
   "scripts": {

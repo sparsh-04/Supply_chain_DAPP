@@ -1,0 +1,13 @@
+.header-div{
+    text-align: center;
+    background-color: blueviolet;
+}
+
+.header-h1{
+    color: black
+}
+.center{
+    display: flex;
+    justify-content: 'center';
+    align-items: 'center';
+}

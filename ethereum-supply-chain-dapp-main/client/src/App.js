@@ -17,8 +17,9 @@ import NewItem from "./components/NewItem"
 import Notification from "./components/Notification"
 import ProductTable from "./components/ProductTable"
 import SimpleProductTable from "./components/SimpleProductTable"
-
 import "./App.css";
+
+
 
 class App extends Component {
 
@@ -207,19 +208,38 @@ class App extends Component {
         </div>
       );
     }
+    const wholePage = {
+      backgroundColor:'#F5E8C7',
+      height: '100vh',
+      overflow:'auto'
+    };
+
+    const addItem = {
+      height : '50vh',
+      backgroundColor:'#EEE2DE'
+    }
+
+    const mainContent = {
+      marginTop: "2%",
+      width: "100%",
+      // display: 'flex'
+    }
     return (
-      <div className="App">
+      <div style={wholePage}>
         <Header />
-        <NewItem productManager={this.productManager} account={this.accounts[0]} updateProducts={this.getAllProductsFromContract} />
-        <Container style={{ 'marginTop': '2%', 'width': '100%' }}>
-          <Grid container spacing={3}>
-            <Grid item xs={6}>
+        <Container style={mainContent}>
+          <Grid container direction="column" justifyContent="space-evenly" alignItems="center">
+           <Grid item xs={10}>
+           <NewItem style={addItem} productManager={this.productManager} account={this.accounts[0]} updateProducts={this.getAllProductsFromContract} />
+            </Grid>
+            <Grid item xs={10}>
               <ProductTable
+                syle={{width:"100vw"}}
                 rows={this.state.productsNew}
                 title={'New'}
-              />
-            </Grid>
-            <Grid item xs={6}>
+              /> 
+             </Grid>
+            <Grid item xs={10}>
               <SimpleProductTable
                 rows={this.state.productsPaid}
                 title={'Paid'}
@@ -228,14 +248,12 @@ class App extends Component {
                 updateProducts={this.getAllProductsFromContract}
               />
             </Grid>
-            <Grid item xs={2}></Grid>
-            <Grid item xs={8}>
+            <Grid item xs={10}>
               <ProductTable
                 rows={this.state.productsDelivered}
                 title={'Delivered'}
               />
             </Grid>
-            <Grid item xs={2}></Grid>
           </Grid>
         </Container>
         <Notification open={this.state.showNotification} message={this.state.notificationMessage} handleClose={this.toggleNotification} />

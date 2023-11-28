@@ -5,6 +5,9 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import AccountTreeRoundedIcon from '@material-ui/icons/AccountTreeRounded';
+import './styles.css';
+// import Select from 'react-select'
+
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -19,16 +22,24 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Header() {
-    const classes = useStyles();
+    // const classes = useStyles();
+    const appBarStyle = {
+        backgroundColor: '#2B2A4C',
+        display: 'flex',
+      };
+
+    const h1style ={
+        color: "#EEE2DE",
+        flexGrow : 1
+    };
+
+
 
     return (
-        <div className={classes.root}>
-            <AppBar position="static">
-                <Toolbar>
-                    <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-                        <AccountTreeRoundedIcon />
-                    </IconButton>
-                    <Typography variant="h6" >Supply Chain Dashboard</Typography>
+        <div className='center'>
+            <AppBar style={appBarStyle}>
+                <Toolbar style={{marginLeft:"30vw"}}>
+                    <h1 style={h1style}>Narcotics Supply Chain Management</h1>
                 </Toolbar>
             </AppBar>
         </div>

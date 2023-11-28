@@ -8,7 +8,11 @@ import Container from '@material-ui/core/Container';
 import TextField from '@material-ui/core/TextField';
 
 import AlertDialog from './AlertDialog'
+import { InputAdornment } from '@material-ui/core';
 
+const paperStyle = {
+    color: "#2B2A4C",
+};
 class NewItem extends Component {
 
     constructor(props) {
@@ -33,11 +37,12 @@ class NewItem extends Component {
         this.setState({
             [name]: value
         });
+        
     }
 
     createNewItem = async (event) => {
         /**
-         * Creating new pruduct based on user inputs and storing it on smart contract 
+         * Creating new product based on user inputs and storing it on smart contract 
          */
         let result = await this.props.productManager.methods.createProduct(this.state.itemName, this.state.itemPrice).send({ from: this.props.account});
         this.setState({
@@ -55,23 +60,25 @@ class NewItem extends Component {
         }));
      }
 
+    
+
     render() {
         return (
-            <Container style={{ 'marginTop': '2%', 'width': '50%' }}>
-                <Paper elevation={3} >
-                    <Grid container spacing={3}>
+            <Container style={{marginTop:'20vh', marginBottom:'20vh','width': '50vw' ,height:"40vh"}}>
+                <Paper elevation={3} style={paperStyle} >
+                    <Grid container direction="column" justifyContent="space-evenly" alignItems="center" spacing={3}>
                         <Grid item xs={12}>
                             <h2>Add items to the inventory:</h2>
                         </Grid>
-                        <Grid item xs={3}></Grid>
-                        <Grid item xs={3} style={{ 'textAlign': 'right' }}>
-                            <TextField required label='Price in Wei' variant='outlined' name="itemPrice" value={this.state.itemPrice} onChange={this.handleInputChange} />
+                        <Grid item xs={10}></Grid>
+                        <Grid item xs={10} style={{ 'textAlign': 'center' }}>
+                        <TextField placeholder='Product name' variant='outlined' name="itemName" value={this.state.itemName} onChange={this.handleInputChange} />
                         </Grid>
-                        <Grid item xs={3} style={{ 'textAlign': 'left' }}>
-                            <TextField required label='Product name' variant='outlined' name="itemName" value={this.state.itemName} onChange={this.handleInputChange} />
+                        <Grid item xs={10} style={{ 'textAlign': 'center' }}>
+                        <TextField placeholder='Product Price' variant='outlined' name="itemPrice" value={this.state.itemPrice} onChange={this.handleInputChange} />   
                         </Grid>
                         <Grid item xs={3}></Grid>
-                        <Grid item xs={12}>
+                        <Grid item xs={10}>
                             <Button variant="outlined" color="primary" onClick={this.createNewItem}>
                                 Create new product
                             </Button>
