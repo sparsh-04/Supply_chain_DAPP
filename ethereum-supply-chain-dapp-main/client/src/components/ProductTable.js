@@ -15,12 +15,10 @@ import TableSortLabel from '@material-ui/core/TableSortLabel';
 import Paper from '@material-ui/core/Paper';
 
 function descendingComparator(a, b, orderBy) {
-  if (b[orderBy] < a[orderBy]) {
+  if (b[orderBy] < a[orderBy]) 
     return -1;
-  }
-  if (b[orderBy] > a[orderBy]) {
+  if (b[orderBy] > a[orderBy]) 
     return 1;
-  }
   return 0;
 }
 
@@ -43,6 +41,7 @@ function stableSort(array, comparator) {
 const headCells = [
   { id: 'name', numeric: false, disablePadding: false, label: 'Name' },
   { id: 'price', numeric: true, disablePadding: false, label: 'Price' },
+  { id: 'quantity', numeric: true, disablePadding: false, label: 'Quantity' },  
   { id: 'state', numeric: true, disablePadding: false, label: 'State' },
   { id: 'paymentAddress', numeric: true, disablePadding: false, label: 'Payment address' },
 ];
@@ -213,6 +212,7 @@ export default function ProductTable(props) {
                         {row.name}
                       </TableCell>
                       <TableCell align="right">{row.price}</TableCell>
+                      <TableCell align="right">{row.quantity}</TableCell>
                       <TableCell align="right">{row.state}</TableCell>
                       <TableCell align="right">{row.paymentAddress}</TableCell>
                     </TableRow>

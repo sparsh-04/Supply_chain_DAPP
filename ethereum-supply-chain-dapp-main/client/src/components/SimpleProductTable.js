@@ -46,6 +46,7 @@ export default function SimpleProductTable(props) {
           <TableRow>
             <TableCell align="left" style={{ 'fontWeight': 'bold' }}>Name</TableCell>
             <TableCell align="right" style={{ 'fontWeight': 'bold' }}>Price</TableCell>
+            <TableCell align="right" style={{ 'fontWeight': 'bold' }}>Quantity</TableCell>
             <TableCell align="right" style={{ 'fontWeight': 'bold' }}>State</TableCell>
             <TableCell align="right" style={{ 'fontWeight': 'bold' }}>Action</TableCell>
           </TableRow>
@@ -57,6 +58,7 @@ export default function SimpleProductTable(props) {
                 {row.name}
               </TableCell>
               <TableCell align="right">{row.price}</TableCell>
+              <TableCell align="right">{row.quantity}</TableCell>
               <TableCell align="right">{row.state}</TableCell>
               <TableCell align="right">
                 <IconButton color="primary" aria-label="add to shopping cart" size="small" onClick={(event) => shipProduct(event, row.id)}>
